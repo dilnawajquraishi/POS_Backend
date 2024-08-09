@@ -1,7 +1,6 @@
 let express=require('express');
 const { find_all_product, updateproduct, Delete_Product, createproduct, addProduct ,filter} = require('../Controller/Productcontroller');
 const ProductController = require('../Controller/ProductControllers');
-
 const router=express.Router();
 // router.post('/create',createproduct)
 // router.delete('/delete',Delete_Product)
