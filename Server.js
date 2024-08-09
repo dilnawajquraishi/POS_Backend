@@ -1,5 +1,5 @@
 let express=require('express')
-let port=8080;
+let dotenv=require('dotenv').config()
 let app=express()
 let connection=require('./db')
  connection()
@@ -16,6 +16,6 @@ app.get('/',(req,res)=>{
 
 
 
-app.listen(port,()=>{
-    console.log(` server is runing on port ${port}`)
+app.listen(process.env.dotenv,()=>{
+    console.log(` server is runing on port ${process.env.dotenv}`)
 })

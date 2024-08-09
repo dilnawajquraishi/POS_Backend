@@ -2,6 +2,33 @@
 
   **************************************************Product_API*****************************************
 
+
+*******************create-product***********************
+http://localhost:8080/product/products
+
+*****************************************Delete_Product******************************
+http://localhost:8080/product/delete
+
+
+*******************find-all-item***********************
+http://localhost:8080/product/findallitem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    *******************Create_Product********************
    http://localhost:8080/create
 

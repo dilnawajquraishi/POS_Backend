@@ -1,34 +1,32 @@
-let mongoose=require('mongoose')
-let usermodel=new mongoose.Schema({
-    name:{
-        type:String,
-        required:true,
-        unique:true,
-      
-    },
-    email:{
-        type:String,
-        required:true,
-        
-        
-    },
-    phone:{
-        type:Number,
+let mongoose = require('mongoose');
 
+let usermodel = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    password:{
-        type:String,
-
+    email: {
+        type: String,
+        required: true,
+    },
+    phone: {
+        type: Number,
+    },
+    image: {
+        type: String,
+        default: 'default-profile-pic.jpg', // Optional default image
+    },
+    password: {
+        type: String,
     },
     status: {
         type: String,
-        enum: ['active', 'inactive']
-        // required: true,
-      },
-    confirmpassword:{
-        type:String,
-        // required:true,
+        enum: ['active', 'inactive'],
+    },
+    confirmpassword: {
+        type: String,
     }
+});
 
-})
-module.exports=mongoose.model('usercollection',usermodel)
+module.exports = mongoose.model('usercollection', usermodel);
