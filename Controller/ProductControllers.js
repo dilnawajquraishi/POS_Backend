@@ -71,3 +71,43 @@ exports.deleteProduct = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+exports.pagination=async(req,res)=>{
+try {
+  const page=parseInt(req.query.page)|| 1;
+  const limit=10;
+  const totaluser=await Product.countDocuments();
+  const totalpages=Math.ceil(totaluser/limit);
+  const nexrpage=page<totalpages ? page +1:null;
+   const users=await  Product.find().skip((page-1)*limit).limit(limit);
+} catch (error) {
+  return res.status(200).json({success:true,message:"Users data",date:users,
+    page,
+    nextpage,
+    totalpages,
+    totaluser
+  })
+}
+}
+
+
+
+exports.filter=async(req,res)=>{
+  const {query}=req.query
+  try {
+      const filterdata=await Product.find({
+          '$or':[
+              {
+               brand:new RegExp(query,'i','g')   
+              },{
+                  CategoryName:new RegExp(query,'i','g')  
+              }
+          ]
+      })
+      res.json({
+          data:filterdata,
+
+      })
+  } catch (error) {
+      return res.status(400).json({success:false,error:error})
+  }
+}

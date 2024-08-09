@@ -23,11 +23,56 @@ const SubCategory = mongoose.model('SubCategory', SubCategorySchema);
 const ProductSchema = new Schema({
   name: { type: String, required: true, trim: true },
   description: { type: String, trim: true },
-  price: { type: Number, required: true, min: 0 },
+  // price: { type: Number, required: true, min: 0 },
+  barcode: {
+    type: String,
+    required: true,
+    unique: true
+},
+tax: {
+    type: Number,
+    required: true
+},
+status: {
+    type: String,
+    enum: ['active', 'inactive'],
+    default: 'active'
+},
+unit: {
+    type: String,
+    required: true
+},
+can_purchasable: {
+  type: String,
+  enum: ['yes', 'no'],
+  default: 'yes'
+},
+show_stock_out: {
+  type: String,
+  enum: ['enable', 'disable'],
+  default: 'enable'
+},
+buying_price: {
+  type: Number,
+  required: true
+},
+selling_price: {
+  type: Number,
+  required: true
+},
   sku: { type: String, required: true, unique: true, trim: true },
   stock_quantity: { type: Number, required: true, default: 0, min: 0 },
   sub_category: { type: Schema.Types.ObjectId, ref: 'SubCategory', required: true },
   image_url: { type: String, trim: true },
+  sellingprice:{
+type:Number,
+  },
+  Refundable:{
+    type:"String",
+  },
+  buyingprice:{
+    type:"Number",
+      },
   brand: { type: String, trim: true },
   color: { type: String, trim: true },
   size: { type: String, trim: true },

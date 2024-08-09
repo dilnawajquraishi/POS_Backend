@@ -1,5 +1,5 @@
 let express=require('express');
-const { find_all_product, updateproduct, Delete_Product, createproduct, addProduct ,filter} = require('../Controller/Productcontroller');
+const { find_all_product, updateproduct, Delete_Product, createproduct, addProduct } = require('../Controller/Productcontroller');
 const ProductController = require('../Controller/ProductControllers');
 const router=express.Router();
 // router.post('/create',createproduct)
@@ -15,7 +15,9 @@ router.get('/findallitem', ProductController.getAllProducts);
 router.get('/products/:id', ProductController.getProductById);
 router.put('/update/:id', ProductController.updateProduct);
 router.delete('/delete/:name', ProductController.deleteProduct);
-// router.get('/filter', ProductController.filter);
+router.get('/pagination', ProductController.pagination);
+
+router.get('/filter', ProductController.filter);
 
 
 

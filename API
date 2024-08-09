@@ -9,6 +9,9 @@ http://localhost:8080/product/products
 *****************************************Delete_Product******************************
 http://localhost:8080/product/delete
 
+********************************************Update_Product**********************************
+http://localhost:8080/product/update/id
+
 
 *******************find-all-item***********************
 http://localhost:8080/product/findallitem
