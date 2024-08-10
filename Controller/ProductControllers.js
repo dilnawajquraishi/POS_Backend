@@ -111,3 +111,50 @@ exports.filter=async(req,res)=>{
       return res.status(400).json({success:false,error:error})
   }
 }
+
+
+// // *********************multer****************
+
+
+const multer = require('multer');
+
+
+// // Multer setup
+exports.upload = multer({
+  dest: './uploads/',
+  limits: {
+    fileSize: 1000000 // 1MB
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(png|jpg|jpeg)$/)) {
+      return cb(new Error('Only PNG, JPG, and JPEG files are allowed!'));
+    }
+    cb(undefined, true);
+  }
+});
+
+// Mongoose schema
+// / const imageSchema = new mongoose.Schema({
+//    imageData: Buffer
+//  });
+
+// //  Mongoose model
+//  const Image = mongoose.model('Image', imageSchema);
+
+//  Route to upload image
+//  app.post('/upload', upload.single('image'),
+ exports.multer=async (req, res) => {
+  try {
+     // Encode image to Base64
+   const encodedImage = req.file.buffer.toString('base64');     // Create new image document
+     const image = new Image({
+       imageData: encodedImage
+     });
+     // Save image to database
+     await image.save();
+   res.send('Image uploaded successfully!');
+   } catch (error) {
+    res.status(400).send('Error uploading image!');
+   }
+};
+

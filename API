@@ -1,15 +1,15 @@
   
 
-  **************************************************Product_API*****************************************
+*******************Product_API*************************
 
 
 *******************create-product***********************
 http://localhost:8080/product/products
 
-*****************************************Delete_Product******************************
+******************Delete_Product*****************
 http://localhost:8080/product/delete
 
-********************************************Update_Product**********************************
+****************Update_Product**************
 http://localhost:8080/product/update/id
 
 
@@ -17,6 +17,9 @@ http://localhost:8080/product/update/id
 http://localhost:8080/product/findallitem
 
 
+********************Damage-****************************
+
+http://localhost:8080/product/damage
 
 
 

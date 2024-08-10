@@ -63,7 +63,7 @@ selling_price: {
   sku: { type: String, required: true, unique: true, trim: true },
   stock_quantity: { type: Number, required: true, default: 0, min: 0 },
   sub_category: { type: Schema.Types.ObjectId, ref: 'SubCategory', required: true },
-  image_url: { type: String, trim: true },
+  image_url: { type: String, trim: true ,data:Buffer},
   sellingprice:{
 type:Number,
   },
@@ -71,7 +71,7 @@ type:Number,
     type:"String",
   },
   buyingprice:{
-    type:"Number",
+    type:Number,
       },
   brand: { type: String, trim: true },
   color: { type: String, trim: true },

@@ -1,6 +1,8 @@
 let express=require('express');
 const { find_all_product, updateproduct, Delete_Product, createproduct, addProduct } = require('../Controller/Productcontroller');
 const ProductController = require('../Controller/ProductControllers');
+const { damage_create_product } = require('../Controller/damagecontroller');
+
 const router=express.Router();
 // router.post('/create',createproduct)
 // router.delete('/delete',Delete_Product)
@@ -16,9 +18,15 @@ router.get('/products/:id', ProductController.getProductById);
 router.put('/update/:id', ProductController.updateProduct);
 router.delete('/delete/:name', ProductController.deleteProduct);
 router.get('/pagination', ProductController.pagination);
-
 router.get('/filter', ProductController.filter);
+// router.post('/upload', ProductController.multer);
 
+//  router.post('/upload', upload.single('image'),
+
+
+// *******************Damage_Product***************************
+
+    router.post('/damage', damage_create_product)
 
 
 // router.delete('/products/:id', ProductController.deleteProduct);
