@@ -21,12 +21,15 @@ let damageschema=new mongoose.Schema({
         discount:{
             type:Number,
         },
+    
         unitcost:{
             type:Number,
         },
+            
         textarea:{
             type:"String",
         }
 
 })
-module.exports=mongoose.model("damage_collection",damageschema)
+module.exports=mongoose.model('damageproduct',damageschema)
+

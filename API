@@ -22,6 +22,12 @@ http://localhost:8080/product/findallitem
 http://localhost:8080/product/damage
 
 
+******************varient_Product**********
+http://localhost:8080/product/varient_product
+
+
+*******************Purchage_Product*********
+http://localhost:8080/product/purchage_create
 
 
 
